@@ -28,7 +28,7 @@ public class Main {
                 List<Cats> list = mapper.readValue(response.getEntity().getContent(), new TypeReference<>() {
                 });
                 List<Cats> filteredList = list.stream()
-                        .filter(x -> x.getUpvotes() == null)
+                        .filter(cat -> cat.getUpvotes() == null)
                         .collect(Collectors.toList());
                 filteredList.forEach(System.out::println);
             } catch (IOException error) {
